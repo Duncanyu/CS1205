@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      win95-clouds_0: -789446650097308408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
