@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Assets.meta
-guid: 4a3e311152a25f71ebf1014fc6b2c38a
+guid: 12fba2efcec44f16d96200d780e26c4f
 folderAsset: yes
 ========
 guid: 5548be41c26b38643b7568d68e9e5b69
 >>>>>>>> 6a7826a1693907def5835b7dccf9edf8f79c0dac:Assets/Scenes/Shop.unity.meta
-=======
-guid: 7309b2308c80e9d48b926e6aa40258e3
-folderAsset: yes
->>>>>>> 6a7826a1693907def5835b7dccf9edf8f79c0dac
 DefaultImporter:
   externalObjects: {}
   userData: 
