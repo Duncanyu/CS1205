@@ -1,6 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Assets/Script.meta
+guid: c03fcb62cf156a899b6493ce9d77715a
+folderAsset: yes
+========
+guid: 7f6b06dc7bb83234e9e08639d871efe0
+>>>>>>>> 6a7826a1693907def5835b7dccf9edf8f79c0dac:Assets/Scenes/Game Menu.unity.meta
+=======
 guid: 1475562206409d44e9ca341767dd3fa4
 folderAsset: yes
+>>>>>>> 6a7826a1693907def5835b7dccf9edf8f79c0dac
 DefaultImporter:
   externalObjects: {}
   userData: 
