@@ -134,6 +134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1345234164231674698, guid: 0e86218732dfcec258cdd7c53c1b83c1, type: 3}
   firePoint: {fileID: 6393502468785820993}
-  player: {fileID: 0}
+  player: {fileID: 7947838139758084574, guid: fcf7a93f42ed9c21f8e1f68c3f76b5a0, type: 3}
   fireRate: 2
   detectionRange: 9

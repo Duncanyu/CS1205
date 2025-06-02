@@ -1,7 +1,9 @@
+using UnityEngine;
+
 public class UpDownOscillation : MonoBehaviour
 {
-    public float amplitude = 1f;    // How far up/down it moves
-    public float frequency = 1f;    // How fast it moves
+    public float amplitude = 1f;
+    public float frequency = 1f;
 
     private Vector3 startPos;
 
