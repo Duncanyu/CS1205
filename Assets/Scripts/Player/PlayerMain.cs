@@ -1,28 +1,73 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class Main : MonoBehaviour
+//I swear there was a better one i committed before that was more elegant than this but i forgot how i did it. idk i thought i fixed the issue
+
+public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Movement Settings")]
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
-    private Vector2 movement;
+    private Vector2 moveInput;
+
+    private List<KeyCode> horizontalKeys = new List<KeyCode>();
+    private List<KeyCode> verticalKeys = new List<KeyCode>();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; //just in case
     }
 
-    // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
+        HandleKeyInput(KeyCode.A, horizontalKeys);
+        HandleKeyInput(KeyCode.LeftArrow, horizontalKeys);
+        HandleKeyInput(KeyCode.D, horizontalKeys);
+        HandleKeyInput(KeyCode.RightArrow, horizontalKeys);
+
+        HandleKeyInput(KeyCode.W, verticalKeys);
+        HandleKeyInput(KeyCode.UpArrow, verticalKeys);
+        HandleKeyInput(KeyCode.S, verticalKeys);
+        HandleKeyInput(KeyCode.DownArrow, verticalKeys);
+
+        moveInput = new Vector2(GetAxisFromKeys(horizontalKeys), GetAxisFromKeys(verticalKeys)).normalized;
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        rb.linearVelocity = moveInput * moveSpeed;
+    }
+
+    void HandleKeyInput(KeyCode key, List<KeyCode> keyList)
+    {
+        if (Input.GetKeyDown(key))
+        {
+            if (!keyList.Contains(key))
+                keyList.Add(key);
+        }
+
+        if (Input.GetKeyUp(key))
+        {
+            keyList.Remove(key);
+        }
+    }
+
+    int GetAxisFromKeys(List<KeyCode> keyList)
+    {
+        for (int i = keyList.Count - 1; i >= 0; i--)
+        {
+            KeyCode key = keyList[i];
+            if (key == KeyCode.A || key == KeyCode.LeftArrow)
+                return -1;
+            else if (key == KeyCode.D || key == KeyCode.RightArrow)
+                return 1;
+            else if (key == KeyCode.W || key == KeyCode.UpArrow)
+                return 1;
+            else if (key == KeyCode.S || key == KeyCode.DownArrow)
+                return -1;
+        }
+        return 0;
     }
 }
