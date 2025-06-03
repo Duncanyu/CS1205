@@ -8,11 +8,11 @@ public class Bullet : MonoBehaviour
 
     private Vector2 direction;
 
-    public void SetDirection(Vector2 dir)
-    {
-        direction = dir.normalized;
-        Destroy(gameObject, lifeTime); // destroy after a few seconds
-    }
+    // public void SetDirection(Vector2 dir)
+    // {
+    //     direction = dir.normalized;
+    //     Destroy(gameObject, lifeTime); // destroy after a few seconds
+    // }
 
     void Update()
     {
@@ -28,8 +28,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-      void OnBecameInvisible()
+    // void OnBecameInvisible()
+    // {
+    //     Destroy(gameObject);
+    // }
+
+    public void SetDirection(Vector2 direction)
     {
-        Destroy(gameObject);
+        GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        Destroy(gameObject, lifeTime); // destroy after a few seconds
     }
+
 }
