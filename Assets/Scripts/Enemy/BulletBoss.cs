@@ -12,8 +12,12 @@ public class MultiFireTurret : MonoBehaviour
 
     public int bulletCount = 10; // For random spread
 
+    private EnemyDeath bossHealth;
+
     void Start()
     {
+        bossHealth = GetComponentInParent<EnemyDeath>();
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -33,8 +37,14 @@ public class MultiFireTurret : MonoBehaviour
 
             if (fireCooldown <= 0f)
             {
-                // FireAll();
-                FireRandomSpread();
+                Debug.Log(bossHealth.health);
+
+                if (bossHealth.health <= bossHealth.health / 2) {
+                    FireAll();
+                } else {
+                    FireRandomSpread();
+                }
+                //FireRandomSpread();
                 fireCooldown = 1f / fireRate;
             }
         }
