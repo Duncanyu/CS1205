@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
+    
     private Vector2 moveInput;
 
     private List<KeyCode> horizontalKeys = new List<KeyCode>();
