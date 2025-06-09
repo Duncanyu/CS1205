@@ -10,5 +10,5 @@ public class MissileAddon : MonoBehaviour
     private float lastTriggerTime = -10000000;
     private Transform playerTransform;
 
-    public void Initialize(Transform player):
+    //public void Initialize(Transform player):
 }
