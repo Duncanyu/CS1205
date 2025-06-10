@@ -12,6 +12,11 @@ public class MissileAddon : MonoBehaviour
     private float lastTriggerTime = -10000000;
     private Transform playerTransform;
 
+    void Start() //THIS IS ONLY TERMPORARY SO THAT I CAN SEE IT WORKS + REMOVE IT AFTER AND ONLY CALL INITIALIZE FROM SEPARATE SCRIPT WHEN PLAYER UNLOCKS THIS ABILITY
+    {
+        Initialize(this.transform);
+    }
+
     public void Initialize(Transform player)
     {
         playerTransform = player;
@@ -31,7 +36,7 @@ public class MissileAddon : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); //set tag in editor wheneve ryou kmake a new enemy
         if (enemies.Length == 0) return;
 
-        List<EnemyDistanceData> enemyData = new List<EnemyDistanceData>(); //creating a new gameobject for each enemy and assigning a distance + position to ir
+        List<EnemyDistanceData> enemyData = new List<EnemyDistanceData>();
         foreach (GameObject enemy in enemies)
         {
             float dist = Vector2.Distance(playerTransform.position, enemy.transform.position);
@@ -52,7 +57,7 @@ public class MissileAddon : MonoBehaviour
             }
         }
 
-        //binary search even tho here its kinda inefficent
+        //bubble search cos im gonna be honest any other search would just be unnecessarily inefficient
         for (int i = 1; i < enemyData.Count; i++)
         {
             float d = enemyData[i].GetDistance();
@@ -69,7 +74,9 @@ public class MissileAddon : MonoBehaviour
     void FireMissile(Transform target)
     {
         GameObject missile = Instantiate(missilePrefab, playerTransform.position, Quaternion.identity);
-        //create the homing missile class, future duncan
+        HomingMissile hm = missile.GetComponent<HomingMissile>();
+        
+        hm.SetTarget(target);
     }
 
     private class EnemyDistanceData
