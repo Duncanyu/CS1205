@@ -32,6 +32,16 @@ public class WeaponsHandler : MonoBehaviour
         GameObject temp = Instantiate(weaponPrefab);
         temp.transform.SetParent(this.transform);
 
+        foreach (Renderer r in temp.GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = false;
+        }
+
+        foreach (Collider2D c in temp.GetComponentsInChildren<Collider2D>())
+        {
+            c.enabled = false;
+        }
+
         currentWeapon = temp.GetComponent<WeaponBase>();
 
         if (currentWeapon == null)
@@ -40,7 +50,7 @@ public class WeaponsHandler : MonoBehaviour
         }
         else
         {
-            currentWeapon.SetOwner(this.transform); // ✅ Now it's safe
+            currentWeapon.SetOwner(this.transform);
         }
     }
 

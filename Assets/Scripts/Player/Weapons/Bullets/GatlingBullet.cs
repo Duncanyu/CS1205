@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BasicBullet : BulletBase
+public class GatlingBullet : BulletBase
 {
     protected override void Start()
     {
         base.Start();
-        damage = 10;
+        damage = 1;
     }
 }
