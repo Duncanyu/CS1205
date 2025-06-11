@@ -59,4 +59,10 @@ public class WeaponsHandler : MonoBehaviour
     {
         return currentWeapon;
     }
+
+    public void ActivateMissiles()
+    {
+        MissileAddon ma = GetComponent<MissileAddon>();
+        ma.Initialize(this.transform);
+    }
 }
