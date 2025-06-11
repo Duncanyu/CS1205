@@ -7,6 +7,5 @@ public class PlayerData {
     public float[] Position;
     public float[] moveSpeed;
     public int Score;
-    public WeaponBase CurrentWeapon; 
 
 }
