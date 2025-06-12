@@ -10,10 +10,10 @@ public class WeaponBase : MonoBehaviour
 
     protected Transform playerTransform;
 
-    public void SetOwner(Transform player)
-    {
-        playerTransform = player;
-    }
+        public void SetOwner(Transform player)
+        {
+            playerTransform = player;
+        }
 
     public virtual void Fire(Vector2 direction)
     {

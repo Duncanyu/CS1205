@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BasicWeapon : WeaponBase
 {
+
     public GameObject bulletPrefab;
 
     protected override void Shoot(Vector2 direction)
