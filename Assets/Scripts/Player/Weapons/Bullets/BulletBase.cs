@@ -22,8 +22,13 @@ public class BulletBase : MonoBehaviour
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D apirly)
     {
-        //when something touch (implement later)
+        if (apirly.CompareTag("Enemy"))
+        {
+            EnemyDeath enemyDeath = apirly.GetComponent<EnemyDeath>();
+            enemyDeath.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

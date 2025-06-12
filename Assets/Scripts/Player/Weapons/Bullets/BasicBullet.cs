@@ -2,5 +2,9 @@ using UnityEngine;
 
 public class BasicBullet : BulletBase
 {
-    //boring ass script
+    protected override void Start()
+    {
+        base.Start();
+        damage = 10;
+    }
 }

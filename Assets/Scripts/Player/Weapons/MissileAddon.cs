@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class MissileAddon : MonoBehaviour
@@ -39,7 +38,14 @@ public class MissileAddon : MonoBehaviour
         List<EnemyDistanceData> enemyData = new List<EnemyDistanceData>();
         foreach (GameObject enemy in enemies)
         {
+            if (enemy == null)
+            {
+                Debug.Log("cog,otu,wil,irrrwtbwa,ihdkhtsmwh.");
+                continue;
+            }
+
             float dist = Vector2.Distance(playerTransform.position, enemy.transform.position);
+            Debug.Log(dist);
             enemyData.Add(new EnemyDistanceData(enemy.transform, dist));
         }
 
@@ -51,7 +57,7 @@ public class MissileAddon : MonoBehaviour
                 if (enemyData[y].GetDistance() > enemyData[y + 1].GetDistance())
                 {
                     var temp = enemyData[y];
-                    enemyData[y] = enemyData[x];
+                    enemyData[y] = enemyData[y + 1];
                     enemyData[y + 1] = temp;
                 }
             }

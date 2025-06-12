@@ -11,7 +11,7 @@ public class HomingMissile : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, lifetime); //start the countdown!!
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
@@ -22,13 +22,16 @@ public class HomingMissile : MonoBehaviour
             return;
         }
 
+
         //----- BEWARE ----- FOR THE CODE BELOW IS NOT MINE
         Vector2 direction = (target.position - transform.position).normalized;
 
-        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        transform.position += transform.up * speed * Time.deltaTime;
         //----- DON'T WORRY ----- THE REST IS MINE
     }
 
@@ -42,8 +45,9 @@ public class HomingMissile : MonoBehaviour
         if (apirly.transform == target || apirly.CompareTag("Enemy"))
         {
             //KABLOOEY
+            EnemyDeath enemyDeath = apirly.GetComponent<EnemyDeath>();
+            enemyDeath.TakeDamage(10);
             Destroy(gameObject);
-            //ryan or future duncan please make it kill the bad guy or reduce hp.
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponBase : MonoBehaviour
 {
     public float fireRate = 0.5f;
+    public GameObject weaponPrefab;
     protected float lastFiredTime = 0f;
 
     protected Transform playerTransform;
@@ -26,5 +27,15 @@ public class WeaponBase : MonoBehaviour
     protected virtual void Shoot(Vector2 direction)
     {
         Debug.Log("Default weapon fired in direction: " + direction);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            WeaponsHandler wh = collision.GetComponent<WeaponsHandler>();
+            wh.EquipWeapon(weaponPrefab);
+            Destroy(gameObject);
+        }
     }
 }
