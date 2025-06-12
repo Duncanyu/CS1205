@@ -76,15 +76,6 @@ public class RandomizedEnemy : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(visualAngle, Vector3.forward);
     }
 
-    public void UpdateEnemy() {
-        // Move bullet
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        // Destroy after lifetime
-        if (Time.time - spawnTime > lifetime)
-            Destroy(gameObject);
-    }
-
     public void GenerateRandomNumbers(int min, int max, int count) {
         randomNumbers = new float[count];
         for (int i = 0; i < count; i++) {
