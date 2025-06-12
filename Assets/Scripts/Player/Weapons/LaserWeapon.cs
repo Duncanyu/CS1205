@@ -5,6 +5,7 @@ public class LaserWeapon : WeaponBase
     public LineRenderer laserLine;
     public float damagePerSecond = 10f;
     public float maxDistance = 20f;
+    public GameObject particleEffects;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class LaserWeapon : WeaponBase
             if (hit.collider == null || hit.collider.CompareTag("Player"))
                 continue;
 
-            laserLine.SetPosition(1, hit.point); 
+            laserLine.SetPosition(1, hit.point); // stop beam at hit point
 
             if (hit.collider.CompareTag("Enemy"))
             {
@@ -61,7 +62,29 @@ public class LaserWeapon : WeaponBase
                 }
             }
 
+            if (particleEffects != null)
+            {
+                Vector3 endPoint = hit.point;
+                GameObject impactEffect = Instantiate(particleEffects, endPoint, Quaternion.identity);
+
+                ParticleSystem ps = impactEffect.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    Destroy(impactEffect, ps.main.duration + ps.main.startLifetime.constantMax);
+                }
+                else
+                {
+                    Destroy(impactEffect, 0.2f);
+                }
+            }
+
             break;
+        }
+
+        float beamLength = Vector2.Distance(laserLine.GetPosition(0), laserLine.GetPosition(1));
+        if (laserLine.material != null)
+        {
+            laserLine.material.mainTextureScale = new Vector2(beamLength, 1f);
         }
     }
 }

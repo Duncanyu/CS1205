@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7840469201601853609}
   - component: {fileID: 8380900138480583988}
   - component: {fileID: 853425273087906287}
+  - component: {fileID: -9153991595205791919}
   m_Layer: 0
   m_Name: Shotgun Weapon
   m_TagString: Weapon
@@ -152,3 +153,16 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3778377445412625356, guid: 4042d4b7ba05fc74fab3f288bde17b39, type: 3}
   pelletCount: 5
   maxSpreadAngle: 25
+--- !u!114 &-9153991595205791919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482046587563310177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202735f415ec04a999d3be28e3a3db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2

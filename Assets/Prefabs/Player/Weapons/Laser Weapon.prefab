@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3688526504497788145}
   - component: {fileID: 7928744100233799375}
   - component: {fileID: 635900853492650530}
+  - component: {fileID: -1706036441377796790}
   m_Layer: 0
   m_Name: Laser Weapon
   m_TagString: Weapon
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2460564180875598847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014764965, y: -1.2736685, z: 0}
+  m_LocalPosition: {x: -3.06, y: -4.56, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -153,6 +154,7 @@ MonoBehaviour:
   laserLine: {fileID: 635900853492650530}
   damagePerSecond: 6
   maxDistance: 50
+  particleEffects: {fileID: 7637228759450560909, guid: 4b9e81c7e504948b8bb430435ad7e064, type: 3}
 --- !u!120 &635900853492650530
 LineRenderer:
   serializedVersion: 2
@@ -260,3 +262,16 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-1706036441377796790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460564180875598847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202735f415ec04a999d3be28e3a3db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2

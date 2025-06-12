@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cc2978370edce36e2a6c9717a6b6c3e2
+guid: 6f1c7cea520d04b469432ca6c399ab13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -789446650097308408
-    second: win95-clouds_0
+      213: -5858031515025214529
+    second: scrollable_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,12 +37,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: win95-clouds_0
+      name: scrollable_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4096
-        height: 3072
+        width: 1024
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80de3d354725b05f0800000000000000
-      internalID: -789446650097308408
+      spriteID: fb3f0efcf5714bea0800000000000000
+      internalID: -5858031515025214529
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      win95-clouds_0: -789446650097308408
+      scrollable_0: -5858031515025214529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

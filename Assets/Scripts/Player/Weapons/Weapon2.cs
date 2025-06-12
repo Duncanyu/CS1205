@@ -2,26 +2,66 @@
 // using static UnityEngine.UI.Image;
 // using UnityEngine.UIElements;
 
-// public class Weapon2 : WeaponBase
-// {
-//     public GameObject bulletPrefab;
+using UnityEngine;
 
-//     protected override void Shoot(Vector2 direction)
-//     {
-//         if (playerTransform == null)
-//         {
-//             Debug.LogWarning("no playetreansform set.");
-//             return;
-//         }
-//         GameObject bullet = Instantiate(bulletPrefab, Vector3, Quaternion rotation, Transform parent);
-//     }
+public class Weapon2 : WeaponBase
+{
 
-//     public override void Fire(Vector2 direction)
-//     {
+
+    
+        public Transform player;
+        public GameObject playerPrefab;
+        public GameObject bulletPrefab;
+        public float bulletSpeed = 30f;
+
+        private void Start()
+        {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.transform;
+        SetOwner(player);
        
-//     }
-// }
+        }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            {
+                Fire(Vector2.up); // Pass a proper direction
+            }
+        }
+    }
+
+        protected override void Shoot(Vector2 direction)
+        {
+            if (player == null)
+            {
+                Debug.LogWarning("No player transform");
+                return;
+            }
+
+            GameObject bullet = Instantiate(bulletPrefab, player.position, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = direction.normalized * bulletSpeed;
+            }
+
+            bullet.transform.up = direction;
+        }
+
+        public override void Fire(Vector2 direction)
+        {
+            if (Time.time >= lastFiredTime + fireRate)
+            {
+                lastFiredTime = Time.time;
+                Shoot(direction);
+            }
+        }
+
+    
+}
 
 
-//heng please don't copy and paste it won't work
 

@@ -30,5 +30,10 @@ public class BulletBase : MonoBehaviour
             enemyDeath.TakeDamage(damage);
             Destroy(gameObject);
         }
+        else if (apirly.CompareTag("Border"))
+        {
+            //Debug.Log("Hit Border");
+            Destroy(gameObject);
+        }
     }
 }
