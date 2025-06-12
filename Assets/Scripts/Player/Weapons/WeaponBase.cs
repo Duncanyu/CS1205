@@ -6,6 +6,7 @@ public class WeaponBase : MonoBehaviour
 {
     public float fireRate = 0.5f;
     public GameObject weaponPrefab;
+    private bool isEquipped = false;
     protected float lastFiredTime = 0f;
 
     protected Transform playerTransform;
@@ -14,6 +15,16 @@ public class WeaponBase : MonoBehaviour
         {
             playerTransform = player;
         }
+
+    public bool IsEquipped()
+    {
+        return isEquipped;
+    }
+
+    public void ToggleEquipped()
+    {
+        isEquipped = !isEquipped;
+    }
 
     public virtual void Fire(Vector2 direction)
     {

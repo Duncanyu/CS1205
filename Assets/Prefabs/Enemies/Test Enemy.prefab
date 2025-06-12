@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -382699203069990907}
   - component: {fileID: -7904137809583091820}
   - component: {fileID: 5337022668080603542}
+  - component: {fileID: 2219595599339614460}
   m_Layer: 0
   m_Name: Test Enemy
   m_TagString: Enemy
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9c048c0e31e75eab537e27855f2920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 10
 --- !u!114 &-7904137809583091820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1345234164231674698, guid: 0e86218732dfcec258cdd7c53c1b83c1, type: 3}
   firePoint: {fileID: 1274640648044841125}
-  fireRate: 2
+  fireRate: 1
   detectionRange: 6
 --- !u!50 &5337022668080603542
 Rigidbody2D:
@@ -194,6 +195,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2219595599339614460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382097874570860096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202735f415ec04a999d3be28e3a3db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &8052996187856120466
 GameObject:
   m_ObjectHideFlags: 0

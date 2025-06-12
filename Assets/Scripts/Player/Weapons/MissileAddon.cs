@@ -11,14 +11,15 @@ public class MissileAddon : MonoBehaviour
     private float lastTriggerTime = -10000000;
     private Transform playerTransform;
 
-    void Start() //THIS IS ONLY TERMPORARY SO THAT I CAN SEE IT WORKS + REMOVE IT AFTER AND ONLY CALL INITIALIZE FROM SEPARATE SCRIPT WHEN PLAYER UNLOCKS THIS ABILITY
-    {
-        Initialize(this.transform);
-    }
+    // void Start() //THIS IS ONLY TERMPORARY SO THAT I CAN SEE IT WORKS + REMOVE IT AFTER AND ONLY CALL INITIALIZE FROM SEPARATE SCRIPT WHEN PLAYER UNLOCKS THIS ABILITY
+    // {
+    //     Initialize(this.transform);
+    // }
 
     public void Initialize(Transform player)
     {
         playerTransform = player;
+        Debug.Log("Initialized!");
     }
 
     void Update()
@@ -40,13 +41,16 @@ public class MissileAddon : MonoBehaviour
         {
             if (enemy == null)
             {
-                Debug.Log("cog,otu,wil,irrrwtbwa,ihdkhtsmwh.");
+                //Debug.Log("cog,otu,wil,irrrwtbwa,ihdkhtsmwh.");
                 continue;
             }
 
-            float dist = Vector2.Distance(playerTransform.position, enemy.transform.position);
-            Debug.Log(dist);
-            enemyData.Add(new EnemyDistanceData(enemy.transform, dist));
+            if (playerTransform != null)
+            {    
+                float dist = Vector2.Distance(playerTransform.position, enemy.transform.position);
+                Debug.Log(dist);
+                enemyData.Add(new EnemyDistanceData(enemy.transform, dist));
+            }
         }
 
         //sorting aka bubble sot
@@ -74,7 +78,7 @@ public class MissileAddon : MonoBehaviour
             }
         }
 
-        Debug.Log("MA.cs | pg,irrla,iwebmahtwo");
+        //Debug.Log("MA.cs | pg,irrla,iwebmahtwo");
     }
 
     void FireMissile(Transform target)

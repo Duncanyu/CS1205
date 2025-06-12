@@ -1,16 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //aggreagation
+    public EnemySpawner spawner;
+
+    public GameObject basicEnemyPrefab;
+
     void Start()
     {
-        
+        StartCoroutine(RunLevel());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator RunLevel()
     {
-        
+        yield return new WaitForSeconds(1f);
+        spawner.SpawnEnemy(basicEnemyPrefab, new Vector2(0, 6));
+
+        yield return new WaitForSeconds(2f);
+        spawner.SpawnEnemy(basicEnemyPrefab, new Vector2(-2, 6));
+
+        yield return new WaitForSeconds(1.5f);
+        spawner.SpawnEnemy(basicEnemyPrefab, new Vector2(2, 6));
     }
 }
