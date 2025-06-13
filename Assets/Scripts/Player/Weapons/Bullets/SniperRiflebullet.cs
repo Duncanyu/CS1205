@@ -6,11 +6,12 @@ public class SniperRiflebullet : MonoBehaviour
     public float speed = 10f;
     public float rotationSpeed = 200f;
     public float lifetime = 5f;
-
+     
     private Transform target;
     void Start()
     {
         Destroy(gameObject, lifetime);
+       SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,9 @@ public class SniperRiflebullet : MonoBehaviour
             Vector2 direction = (ClosestEnemy.position - transform.position).normalized;//use chtgpt for this line
             transform.position += (Vector3)(direction * speed * Time.deltaTime);//use chatgpt for this line
         }
-        
+        transform.Rotate(ClosestEnemy.position);
+
+
     }
     //--------------------------------------------------------------------------------------------------------------------------
     public static Transform[] GetEnemyLocation()
