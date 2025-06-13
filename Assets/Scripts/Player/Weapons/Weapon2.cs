@@ -12,7 +12,8 @@ public class Weapon2 : WeaponBase
         public Transform player;
         public GameObject playerPrefab;
         public GameObject bulletPrefab;
-        public float bulletSpeed = 30f;
+       
+        public float bulletSpeed = 10f;
 
         private void Start()
         {
@@ -24,10 +25,10 @@ public class Weapon2 : WeaponBase
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             {
-                Fire(Vector2.up); // Pass a proper direction
+                Fire(Vector2.Lerp(Vector2.left, Vector2.right,0.1f)); // Pass a proper direction
             }
         }
     }
@@ -53,9 +54,9 @@ public class Weapon2 : WeaponBase
 
         public override void Fire(Vector2 direction)
         {
-            if (Time.time >= lastFiredTime + fireRate)
+            if (Time.time >=fireRate)
             {
-                lastFiredTime = Time.time;
+                
                 Shoot(direction);
             }
         }
