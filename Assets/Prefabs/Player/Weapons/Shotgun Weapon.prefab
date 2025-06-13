@@ -151,7 +151,7 @@ MonoBehaviour:
   fireRate: 1
   weaponPrefab: {fileID: 8482046587563310177}
   bulletPrefab: {fileID: 3778377445412625356, guid: 4042d4b7ba05fc74fab3f288bde17b39, type: 3}
-  pelletCount: 5
+  pelletCount: 8
   maxSpreadAngle: 25
 --- !u!114 &-9153991595205791919
 MonoBehaviour:

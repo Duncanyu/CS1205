@@ -19,10 +19,10 @@ public class WeaponsHandler : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && currentWeapon != null)
         {
-            Debug.Log("Shoot");
+            //Debug.Log("Shoot");
             currentWeapon.Fire(Vector2.up);
         }
-        Debug.Log(currentWeapon);
+        //Debug.Log(currentWeapon);
     }
 
     public void EquipWeapon(GameObject weaponPrefab)
@@ -49,7 +49,7 @@ public class WeaponsHandler : MonoBehaviour
 
         if (currentWeapon == null)
         {
-            Debug.LogWarning("Weapon prefab missing WeaponBase.");
+            //Debug.LogWarning("Weapon prefab missing WeaponBase.");
         }
         else
         {

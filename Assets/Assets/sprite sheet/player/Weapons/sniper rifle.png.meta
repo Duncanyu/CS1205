@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sniper rifle_0: -7820444256337985186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
