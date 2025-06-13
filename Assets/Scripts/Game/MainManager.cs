@@ -1,15 +1,20 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
     //aggreagation
     public EnemySpawner spawner;
 
-    public GameObject basicEnemyPrefab;
+    public GameObject pauseButton;
+    public GameObject restartButton;
+    public TextMeshProUGUI puaseText;
+    public bool isPaused = false;
 
     void Start()
     {
+        Time.timeScale = isPaused ? 0f : 1f;
         //StartCoroutine(RunLevel());
     }
 
@@ -31,7 +36,27 @@ public class MainManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Restart();
         }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            TogglePause();
+        }
+    }
+    public void Restart()
+    {
+        isPaused = false;
+        Debug.Log(isPaused);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+    }
+
+    void TogglePause()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+        pauseButton.SetActive(isPaused);
+        restartButton.SetActive(isPaused);
+        puaseText.gameObject.SetActive(isPaused);
     }
 }

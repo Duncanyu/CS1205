@@ -9,6 +9,7 @@ public class PlayerMain : MonoBehaviour
     private Rigidbody2D rb;
 
     private Vector2 moveInput;
+    public MainManager mm;
 
     private List<KeyCode> horizontalKeys = new List<KeyCode>();
     private List<KeyCode> verticalKeys = new List<KeyCode>();
@@ -73,5 +74,6 @@ public class PlayerMain : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+        mm.Restart(); 
     }
 }
