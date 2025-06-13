@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class Weapon2 : WeaponBase
 {
+    public float FireRate = 1f; // time in seconds between shots
+    protected float LastFiredTime = -Mathf.Infinity;
 
 
-    
-        public Transform player;
+    public Transform player;
         public GameObject playerPrefab;
         public GameObject bulletPrefab;
        
-        public float bulletSpeed = 10f;
+        public float bulletSpeed = 50f;
 
         private void Start()
         {
@@ -25,10 +26,10 @@ public class Weapon2 : WeaponBase
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             {
-                Fire(Vector2.Lerp(Vector2.left, Vector2.right,0.1f)); // Pass a proper direction
+                Fire(Vector2.Lerp(Vector2.left, Vector2.right,0.1f)); 
             }
         }
     }
@@ -52,16 +53,16 @@ public class Weapon2 : WeaponBase
             bullet.transform.up = direction;
         }
 
-        public override void Fire(Vector2 direction)
+    public override void Fire(Vector2 direction)
+    {
+        if (Time.time >= LastFiredTime + FireRate)
         {
-            if (Time.time >=fireRate)
-            {
-                
-                Shoot(direction);
-            }
+           LastFiredTime = Time.time; // Update the last fire time
+            Shoot(direction);
         }
+    }
 
-    
+
 }
 
 
