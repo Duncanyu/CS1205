@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-//I swear there was a better one i committed before that was more elegant than this but i forgot how i did it. idk i thought i fixed the issue
-
-public class PlayerController : MonoBehaviour
+public class PlayerMain : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
-    
+
     private Vector2 moveInput;
 
     private List<KeyCode> horizontalKeys = new List<KeyCode>();
@@ -70,5 +68,10 @@ public class PlayerController : MonoBehaviour
                 return -1;
         }
         return 0;
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
