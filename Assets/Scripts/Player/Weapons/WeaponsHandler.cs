@@ -56,14 +56,14 @@ public class WeaponsHandler : MonoBehaviour
             currentWeapon.SetOwner(this.transform);
 
             if (!currentWeapon.IsEquipped())
-            { //this is unneccessary but for more encapsulation examples
+            {
                 currentWeapon.ToggleEquipped();
             }
         }
     }
 
 
-    public WeaponBase GetCurrentWeapon() //encapsulation????? o_o
+    public WeaponBase GetCurrentWeapon() //encapsulation
     {
         return currentWeapon;
     }

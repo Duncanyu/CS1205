@@ -15,6 +15,7 @@ public class EnemyDeath : MonoBehaviour
 
     void Die()
     {
+        PlayerStats.Instance.AddPoints(1);
         Destroy(gameObject); // destroy the enemy
     }
 }

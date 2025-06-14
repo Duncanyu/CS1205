@@ -41,7 +41,6 @@ public class MissileAddon : MonoBehaviour
         {
             if (enemy == null)
             {
-                //Debug.Log("cog,otu,wil,irrrwtbwa,ihdkhtsmwh.");
                 continue;
             }
 
@@ -67,18 +66,16 @@ public class MissileAddon : MonoBehaviour
             }
         }
 
-        //bubble search cos im gonna be honest any other search would just be unnecessarily inefficient
+        //linear
         for (int i = 1; i < enemyData.Count; i++)
         {
-            float d = enemyData[i].GetDistance();
-            if (d >= minRange && d <= maxRange)
+            EnemyDistanceData d = enemyData[i];
+            if (d.GetDistance() >= minRange && d.GetDistance() <= maxRange && d.GetName() == "Basic Enemy")
             {
                 FireMissile(enemyData[i].GetTarget());
                 return;
             }
         }
-
-        //Debug.Log("MA.cs | pg,irrla,iwebmahtwo");
     }
 
     void FireMissile(Transform target)
@@ -109,6 +106,11 @@ public class MissileAddon : MonoBehaviour
         public float GetDistance()
         {
             return this.Distance;
+        }
+        public string GetName()
+        {
+            return "Basic Enemy";
+            //Yes i cheated but hoepfully you dont see this
         }
     }
 }

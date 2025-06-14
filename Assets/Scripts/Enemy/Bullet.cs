@@ -24,8 +24,8 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            PlayerMain pm = other.GetComponent<PlayerMain>();
-            pm.Die();
+            PlayerStats ps = other.GetComponent<PlayerStats>();
+            ps.TakeLife();
         }
     }
 

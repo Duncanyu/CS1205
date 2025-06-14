@@ -37,7 +37,7 @@ public class WeaponBase : MonoBehaviour
 
     protected virtual void Shoot(Vector2 direction)
     {
-        Debug.Log("Default weapon fired in direction: " + direction);
+        Debug.Log("Pew");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
